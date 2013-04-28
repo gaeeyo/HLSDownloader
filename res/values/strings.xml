@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HLSDownloader</string>
+    <string name="downloading">ダウンロード中…</string>
+    <string name="downloadComplete">ダウンロード完了</string>
+    <string name="download">ダウンロード</string>
+    <string name="downloadError">ダウンロードエラー</string>
+    <string name="confirmCancelDownload">ダウンロードをキャンセルしますか?</string>
+
+</resources>
