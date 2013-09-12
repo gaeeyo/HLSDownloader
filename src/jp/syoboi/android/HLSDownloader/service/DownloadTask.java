@@ -147,7 +147,9 @@ class DownloadTask extends ModernAsyncTask<Object,Object,Object> {
 			mDstFile.delete();
 			svc.shutdownNow();
 			e.printStackTrace();
-			showErrorNotification(e);
+			if (!isCancelled()) {
+				showErrorNotification(e);
+			}
 			return e;
 		} finally {
 			mNm.cancel(App.NOTIFY_ID_DOWNLOADING + mId);

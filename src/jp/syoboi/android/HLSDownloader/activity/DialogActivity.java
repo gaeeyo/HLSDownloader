@@ -19,6 +19,7 @@ public class DialogActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.dialog_activity);
 
 		showDialog(1);
 	}
@@ -34,7 +35,7 @@ public class DialogActivity extends Activity {
 			return onDownloadNotificationClicked();
 		}
 		else {
-			finish();
+//			finish();
 		}
 
 		return super.onCreateDialog(id);
@@ -51,14 +52,14 @@ public class DialogActivity extends Activity {
 					i.setAction(Intent.ACTION_DELETE);
 					i.setData(Uri.parse(getIntent().getDataString()));
 					startService(i);
-					finish();
+//					finish();
 				}
 			})
 			.setNeutralButton(android.R.string.no, new OnClickListener() {
 
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-					finish();
+//					finish();
 				}
 			})
 			.create();
@@ -66,7 +67,7 @@ public class DialogActivity extends Activity {
 		dlg.setOnDismissListener(new OnDismissListener() {
 			@Override
 			public void onDismiss(DialogInterface dialog) {
-				finish();
+//				finish();
 			}
 		});
 		return dlg;

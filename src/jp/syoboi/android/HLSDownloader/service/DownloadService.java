@@ -6,6 +6,7 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import android.util.Log;
 
+import java.net.URLEncoder;
 import java.util.HashMap;
 
 import jp.syoboi.android.HLSDownloader.App;
@@ -49,6 +50,20 @@ public class DownloadService extends Service {
 				String title = intent.getStringExtra(Intent.EXTRA_TITLE);
 				if (TextUtils.isEmpty(title)) {
 					title = m3u8;
+					int question = title.indexOf('?');
+					if (question != -1) {
+						int start = title.substring(0, question).lastIndexOf('/');
+						if (start != -1) {
+							title = title.substring(start);
+							title = URLEncoder.encode(title);
+						}
+					} else {
+						int start = title.lastIndexOf('/');
+						if (start != -1) {
+							title = title.substring(start);
+							title = URLEncoder.encode(title);
+						}
+					}
 				}
 
 				DownloadTask task = mTaskMap.get(m3u8);
